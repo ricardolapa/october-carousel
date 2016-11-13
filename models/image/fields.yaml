@@ -1,0 +1,45 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    image_gallery:
+        label: Image
+        type: fileupload
+        mode: image
+        imageHeight: 180
+        imageWidth: 300
+    headline_state:
+        label: Turn Headline On/Off
+        type: switch
+        span: auto
+    baseline_state:
+        label: Turn Baseline On/Off
+        type: switch
+        span: auto
+    headline:
+        label: Headline
+        type: text
+        span: auto
+        dependsOn: headline_state
+    baseline:
+        label: Baseline
+        type: text
+        span: auto
+        dependsOn: baseline_state
+    call_to_action_state:
+        label: Turn On/Off Call to Action Button
+        type: switch
+    call_to_action:
+        label: Call to Action Text
+        type: text
+        span: auto
+        dependsOn: call_to_action_state
+    action_link:
+        label: Add a Link to the Call To Action Button
+        type: text
+        span: auto
+        dependsOn: call_to_action_state

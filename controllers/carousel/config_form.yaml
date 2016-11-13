@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Carousel
+
+# Model Form Field configuration
+form: $/juntadigital/carousel/models/image/fields.yaml
+
+# Model Class name
+modelClass: JuntaDigital\Carousel\Models\Image
+
+# Default redirect location
+defaultRedirect: juntadigital/carousel/carousel
+
+# Create page
+create:
+    title: Create Carousel
+    redirect: juntadigital/carousel/carousel/update/:id
+    redirectClose: juntadigital/carousel/carousel
+
+# Update page
+update:
+    title: Edit Carousel
+    redirect: juntadigital/carousel/carousel
+    redirectClose: juntadigital/carousel/carousel
+
+# Preview page
+preview:
+    title: Preview Carousel

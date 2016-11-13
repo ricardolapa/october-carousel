@@ -1,0 +1,41 @@
+{% set slides = __SELF__.carousel %}
+
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {% for i in slides %}
+            <li data-target="#carousel" data-slide-to="{{loop.index0}}" class="{{ loop.index == 1 ? 'active' : ''}}"></li>
+        {% endfor %}
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+        {% for item in slides %}
+            <div class="item {{ loop.index == 1 ? 'active' : ''}}">
+                {% set currentImage = item.image_gallery %}
+                <img src="{{ currentImage.path }}">
+                <div class="carousel-caption">
+                    {% if item.headline_state %}
+                        <h2>{{ item.headline }}</h2>
+                    {% endif %}
+
+                    {% if item.baseline_state %}
+                        <p>{{ item.baseline }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
