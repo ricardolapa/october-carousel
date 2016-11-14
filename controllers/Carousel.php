@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use JuntaDigital\Carousel\Models\Images as SlideModel;
 
 /**
  * Carousel Back-end Controller
@@ -21,5 +22,21 @@ class Carousel extends Controller
         parent::__construct();
 
         BackendMenu::setContext('JuntaDigital.Carousel', 'carousel', 'carousel');
+    }
+
+    public function onDelete() {
+
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+
+            foreach ($checkedIds as $objectId) {
+
+                if (!$object = SlideModel::find($objectId))
+                    continue;
+                $object->delete();
+            }
+
+        }
+
+        return $this->listRefresh();
     }
 }
