@@ -23,6 +23,10 @@
                     {% if item.baseline_state %}
                         <p>{{ item.baseline }}</p>
                     {% endif %}
+
+                    {% if item.call_to_action_state %}
+                        <a href="{{ item.action_link }}" class="btn btn-default">{{ item.call_to_action }}</a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
